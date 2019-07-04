@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Description</th>
+              <th scope="col">Status</th>
+              <th scope="col">Mail</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Site web</th>
+              <th scope="col">Facebook</th>
+              <th scope="col">Twitter</th>
+              <th scope="col">Instagram</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @brands.each.each do |brand| %>
+                <tr>
+                  <td><a href="/brands/<%= brand.id %>"><%= brand.brand_title %></a></td>
+                  <td><%= brand.brand_desc.truncate_words(6) %></td>
+                  <td><%= brand.brand_status %></td>
+                  <td><%= brand.brand_mail %></td>
+                  <td><%= brand.brand_phone %></td>
+                  <td><%= brand.brand_website %></td>
+                  <td><%= brand.brand_facebook %></td>
+                  <td><%= brand.brand_twitter %></td>
+                  <td><%= brand.brand_instagram %></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+</div>

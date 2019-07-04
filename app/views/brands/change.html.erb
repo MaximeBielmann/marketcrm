@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-12">
+        <h3 class="text-center">Modifier <%= @brand.brand_title %></h3>
+            <%= form_tag "/brands/#{@brand.id}", method: "patch" do %>
+                <form>
+                    <div class="form-group">
+                        <label>Nom de la marque</label>
+                        <input type="text" class="form-control border" value="<%= @brand.brand_title %>" name="brand_title" />
+                    </div>
+                    <div class="form-group">
+                        <label>Description de la marque</label>
+                        <input type="text" class="form-control border" value="<%= @brand.brand_desc %>" name="brand_desc" />
+                    </div>
+                    <div class="form-group">
+                        <label>Status de la marque</label>
+                        <select name="brand_status" class="form-control border" value="<%= @brand.brand_status %>">
+                           <option value="Contacté">Contacté</option>
+                           <option value="Relancé">Relancé</option>
+                           <option value="Validé">Validé</option>
+                           <option value="Refusé">Refusé</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Mail de la marque</label>
+                        <input type="text" class="form-control border" value="<%= @brand.brand_mail %>" name="brand_mail" />
+                    </div>
+                    <div class="form-group">
+                        <label>Phone de la marque</label>
+                        <input type="text" class="form-control border" value="<%= @brand.brand_phone %>" name="brand_phone" />
+                    </div>
+                    <div class="form-group">
+                        <label>Site web de la marque</label>
+                        <input type="text" class="form-control border" value="<%= @brand.brand_website %>" name="brand_website" />
+                    </div>
+                    <div class="form-group">
+                        <label>Facebook de la marque</label>
+                        <input type="text" class="form-control border" value="<%= @brand.brand_facebook %>" name="brand_facebook" />
+                    </div>
+                    <div class="form-group">
+                        <label>Twitter de la marque</label>
+                        <input type="text" class="form-control border" value="<%= @brand.brand_twitter %>" name="brand_twitter" />
+                    </div>
+                    <div class="form-group">
+                        <label>Instagram de la marque</label>
+                        <input type="text" class="form-control border" value="<%= @brand.brand_instagram %>" name="brand_instagram" />
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Modifier la marque</button>
+                    </div>
+                </form>
+            <% end %>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-center"><%= @brand.brand_title %></h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h3 class="text-center">Informations</h3>
+        <p>Status : <%= @brand.brand_status %></p>
+        <p>Site web : <%= @brand.brand_website %></p>
+        <p>Description : <%= @brand.brand_desc %></p>
+    </div>
+    <div class="col-md-6">
+        <h3 class="text-center">Contact</h3>
+        <p>Mail : <%= @brand.brand_mail %></p>
+        <p>Phone : <%= @brand.brand_phone %></p>
+        <p>Facebook : <%= @brand.brand_facebook %></p>
+        <p>Twitter : <%= @brand.brand_twitter %></p>
+        <p>Instagram : <%= @brand.brand_instagram %></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6 text-center">
+        <a href="/brands/<%= @brand.id %>/update" class="btn btn-primary btn-sm">Modifier la marque</a>
+    </div>
+    <div class="col-6">
+        <%= form_tag("/brands/#{params[:id]}", method: "delete", class: 'text-center') do %>
+          <%= submit_tag("Supprimer la marque", class: 'btn btn-primary btn-sm') %>
+        <% end %>
+    </div>
+</div>
