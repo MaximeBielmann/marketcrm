@@ -22,10 +22,10 @@
                   <td><%= brand.brand_status %></td>
                   <td><%= brand.brand_mail %></td>
                   <td><%= brand.brand_phone %></td>
-                  <td><%= brand.brand_website %></td>
-                  <td><%= brand.brand_facebook %></td>
-                  <td><%= brand.brand_twitter %></td>
-                  <td><%= brand.brand_instagram %></td>
+                  <td><a href="<%= brand.brand_website %>" target="_blank"><%= brand.brand_website %></a></td>
+                  <td><a href="<%= brand.brand_facebook %>" target="_blank"><%= brand.brand_facebook %></a></td>
+                  <td><a href="<%= brand.brand_twitter %>" target="_blank"><%= brand.brand_twitter %></a></td>
+                  <td><a href="<%= brand.brand_instagram %>" target="_blank"><%= brand.brand_instagram %></a></td>
                 </tr>
             <% end %>
           </tbody>

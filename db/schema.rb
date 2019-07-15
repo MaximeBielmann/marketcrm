@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190616184258) do
+ActiveRecord::Schema.define(version: 20190706143705) do
 
   create_table "brands", force: :cascade do |t|
     t.string "brand_title"
@@ -22,6 +22,30 @@ ActiveRecord::Schema.define(version: 20190616184258) do
     t.string "brand_facebook"
     t.string "brand_twitter"
     t.string "brand_instagram"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.integer "brand_id"
+    t.integer "people_id"
+    t.string  "member_role"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.integer  "brand_id"
+    t.integer  "people_id"
+    t.datetime "note_datetime"
+    t.string   "note_content"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "person_facebook"
+    t.string "person_twitter"
+    t.string "person_instagram"
+    t.string "person_website"
+    t.string "person_mail"
+    t.string "person_phone"
   end
 
 end

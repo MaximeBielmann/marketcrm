@@ -3,5 +3,7 @@ class PagesController < ApplicationController
   end
   
   def admin
+    @brands = Brand.all
+    @persons = People.all
   end
 end

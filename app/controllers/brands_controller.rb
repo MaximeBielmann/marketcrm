@@ -10,6 +10,8 @@ class BrandsController < ApplicationController
 
   def show
     @brand = Brand.find(params[:id])
+    @members = Member.where(brand_id: params[:id])
+    @notes = Note.where(brand_id: params[:id]).order('note_datetime desc')
   end
   
   def change

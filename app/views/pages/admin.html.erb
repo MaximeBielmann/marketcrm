@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <h3 class="text-center">Ajouter une marque</h3>
             <%= form_tag "/brands", method: "post" do %>
                 <form>
@@ -39,6 +39,68 @@
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Ajouter la marque</button>
                     </div>
+                </form>
+            <% end %>
+    </div>
+    
+    <div class="col-md-4">
+        <h3 class="text-center">Ajouter une personne</h3>
+            <%= form_tag "/persons", method: "post" do %>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control border" placeholder="Nom" name="last_name" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control border" placeholder="Prénom" name="first_name" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control border" placeholder="Mail" name="person_mail" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control border" placeholder="Phone" name="person_phone" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control border" placeholder="Site web" name="person_website" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control border" placeholder="Facebook" name="person_facebook" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control border" placeholder="Twitter" name="person_twitter" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control border" placeholder="Instagram" name="person_instagram" />
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Ajouter la personne</button>
+                    </div>
+                </form>
+            <% end %>
+    </div>
+    <div class="col-md-4">
+            <h3>Ajouter un membre à une marque</h3>
+            <%= form_tag "/members", method: "post" do %>
+                <form>
+                  <div class="form-group">
+                    <select name="brand_id" class="form-control border">
+                    <option value=""> -- select an option -- </option>
+                    <% @brands.each do |brand| %>
+                    <option value="<%= brand.id %>"><%= brand.brand_title %></option>
+                    <% end %>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select name="people_id" class="form-control border">
+                    <option value=""> -- select an option -- </option>
+                    <% @persons.each do |person| %>
+                    <option value="<%= person.id %>"><%= person.first_name %> <%= person.last_name %></option>
+                    <% end %>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control border" placeholder="Rôle" name="member_role" />
+                  </div>
+                  <button type="submit" class="btn btn-primary">Ajouter le membre</button>
                 </form>
             <% end %>
     </div>

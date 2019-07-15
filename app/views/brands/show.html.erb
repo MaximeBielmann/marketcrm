@@ -1,16 +1,27 @@
 <div class="row">
+    <div class="col-6 text-center">
+        <a href="/brands/<%= @brand.id %>/update" class="btn btn-primary btn-sm">Modifier la marque</a>
+    </div>
+    <div class="col-6">
+        <%= form_tag("/brands/#{params[:id]}", method: "delete", class: 'text-center') do %>
+          <%= submit_tag("Supprimer la marque", class: 'btn btn-primary btn-sm') %>
+        <% end %>
+    </div>
+</div>
+
+<div class="row">
     <div class="col-12">
         <h1 class="text-center"><%= @brand.brand_title %></h1>
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <h3 class="text-center">Informations</h3>
         <p>Status : <%= @brand.brand_status %></p>
         <p>Site web : <%= @brand.brand_website %></p>
         <p>Description : <%= @brand.brand_desc %></p>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
         <h3 class="text-center">Contact</h3>
         <p>Mail : <%= @brand.brand_mail %></p>
         <p>Phone : <%= @brand.brand_phone %></p>
@@ -18,15 +29,49 @@
         <p>Twitter : <%= @brand.brand_twitter %></p>
         <p>Instagram : <%= @brand.brand_instagram %></p>
     </div>
+    <div class="col-md-4">
+        <h3 class="text-center">Membres</h3>
+        <% @members.each do |member| %>
+            <p><a href="/persons/<%= member.people.id %>"><%= member.people.first_name %> <%= member.people.last_name %></a></p>
+        <% end %>
+    </div>
 </div>
 
 <div class="row">
-    <div class="col-6 text-center">
-        <a href="/brands/<%= @brand.id %>/update" class="btn btn-primary btn-sm">Modifier la marque</a>
+    <div class="col-md-6">
+        <h3 class="text-center">Historique</h3>
+        <% @notes.each do |note| %>
+            <div class="row">
+                <div class="col-1">
+                    <%= form_tag("/notes/#{note.id}", method: "delete", class: '') do %>
+                        <%= submit_tag("X", class: 'btn btn-primary btn-sm') %>
+                    <% end %>
+                </div>
+                <div class="col-11">
+                    <p class="text-left"><%= note.note_datetime.strftime("Le %d/%m/%Y à %H:%M") %> avec <a href="/persons/<%= note.people.id %>"><%= note.people.first_name  %> <%= note.people.last_name  %></a></p>
+                    <p><%= note.note_content %></p>
+                </div>
+            </div>
+        <% end %>
     </div>
-    <div class="col-6">
-        <%= form_tag("/brands/#{params[:id]}", method: "delete", class: 'text-center') do %>
-          <%= submit_tag("Supprimer la marque", class: 'btn btn-primary btn-sm') %>
+    <div class="col-md-6">
+        <h3 class="text-center">Ajouter une note</h3>
+        <%= form_tag "/notes/#{@brand.id}", method: "post" do %>
+            <div class="form-group">
+                <label>Personne concernée</label>
+                    <select name="people_id" class="form-control border">
+                        <% @members.each do |member| %>
+                           <option value="<%= member.people_id %>"><%= member.people.last_name %> <%= member.people.first_name %></option>
+                        <% end %>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label>Activité</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Activité" name="note_content"></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Ajouter l'activité</button>
+            </div>
         <% end %>
     </div>
 </div>

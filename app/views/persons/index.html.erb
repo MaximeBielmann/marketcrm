@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Prénom</th>
+              <th scope="col">Mail</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Site web</th>
+              <th scope="col">Facebook</th>
+              <th scope="col">Twitter</th>
+              <th scope="col">Instagram</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @persons.each.each do |person| %>
+                <tr>
+                  <td><a href="/persons/<%= person.id %>"><%= person.last_name %></a></td>
+                  <td><%= person.first_name %></td>
+                  <td><%= person.person_mail %></td>
+                  <td><%= person.person_phone %></td>
+                  <td><a href="<%= person.person_website %>" target="_blank"><%= person.person_website %></a></td>
+                  <td><a href="<%= person.person_facebook %>" target="_blank"><%= person.person_facebook %></a></td>
+                  <td><a href="<%= person.person_twitter %>" target="_blank"><%= person.person_twitter %></a></td>
+                  <td><a href="<%= person.person_instagram %>" target="_blank"><%= person.person_instagram %></a></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+</div>
