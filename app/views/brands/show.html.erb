@@ -49,11 +49,13 @@
     </div>
     <div class="col-md-3">
         <h3 class="text-center">Membres</h3>
-        <ul class="list-group list-group-flush">
-            <% @members.each do |member| %>
-                <li class="list-group-item"><a href="/persons/<%= member.people.id %>"><%= member.people.first_name %> <%= member.people.last_name %></a> : <%= member.member_role %></li>
-            <% end %>
-        </ul>
+        <% if @members.size > 0 %>
+            <ul class="list-group list-group-flush">
+                <% @members.each do |member| %>
+                    <li class="list-group-item"><a href="/persons/<%= member.people.id %>"><%= member.people.first_name %> <%= member.people.last_name %></a> : <%= member.member_role %></li>
+                <% end %>
+            </ul>
+        <% end %>
     </div>
 </div>
 
