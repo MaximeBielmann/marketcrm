@@ -29,7 +29,7 @@
         <ul class="list-group list-group-flush">
             <h3 class="text-center">Contact</h3>
             <li class="list-group-item"><i class="fab fa-internet-explorer"></i> <a href="<%= @person.person_website %>" target="_blank"><%= @person.person_website %></a></li>
-            <li class="list-group-item"><i class="fas fa-envelope-square"></i> <%= @person.person_mail %></li>
+            <li class="list-group-item"><i class="fas fa-envelope-square"></i> <a href="mailto:<%= @person.person_mail %>"><%= @person.person_mail %></a></li>
             <li class="list-group-item"><i class="fas fa-phone-square-alt"></i> <%= @person.person_phone %></li>
             <li class="list-group-item"><i class="fab fa-facebook-square"></i> <a href="<%= @person.person_facebook %>" target="_blank"><%= @person.person_facebook %></a></li>
             <li class="list-group-item"><i class="fab fa-twitter-square"></i> <a href="<%= @person.person_twitter %>" target="_blank"><%= @person.person_twitter %></a></li>

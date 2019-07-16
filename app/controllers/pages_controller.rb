@@ -10,7 +10,7 @@ class PagesController < ApplicationController
       @current_user = User.find(session[:user_id])
     end
     
-    @brands = Brand.all
-    @persons = People.all
+    @brands = Brand.all.reverse
+    @persons = People.all.reverse
   end
 end

@@ -40,7 +40,7 @@
         <h3 class="text-center">Contact</h3>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><i class="fab fa-internet-explorer"></i> <a href="<%= @brand.brand_website %>" target="_blank"><%= @brand.brand_website %></a></li>
-          <li class="list-group-item"><i class="fas fa-envelope-square"></i> <%= @brand.brand_mail %></li>
+          <li class="list-group-item"><i class="fas fa-envelope-square"></i> <a href="mailto:<%= @brand.brand_mail %>"><%= @brand.brand_mail %></a></li>
           <li class="list-group-item"><i class="fas fa-phone-square-alt"></i> <%= @brand.brand_phone %></li>
           <li class="list-group-item"><i class="fab fa-facebook-square"></i> <a href="<%= @brand.brand_facebook %>" target="_blank"><%= @brand.brand_facebook %></a></li>
           <li class="list-group-item"><i class="fab fa-twitter-square"></i> <a href="<%= @brand.brand_twitter %>" target="_blank"><%= @brand.brand_twitter %></a></li>
