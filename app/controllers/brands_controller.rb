@@ -4,7 +4,7 @@ class BrandsController < ApplicationController
       @current_user = User.find(session[:user_id])
     end
     
-    @brands = Brand.all
+    @brands = Brand.all.page(params[:page])
   end
   
   def create

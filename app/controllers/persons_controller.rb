@@ -4,7 +4,7 @@ class PersonsController < ApplicationController
       @current_user = User.find(session[:user_id])
     end
     
-    @persons = People.all
+    @persons = People.all.page(params[:page])
   end
   
   def create
