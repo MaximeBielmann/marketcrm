@@ -9,35 +9,53 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row marged">
     <div class="col-12">
         <h1 class="text-center"><%= @brand.brand_title %></h1>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h3 class="text-center">Informations</h3>
-        <p>Status : <%= @brand.brand_status %></p>
-        <p>Site web : <%= @brand.brand_website %></p>
-        <p>Description : <%= @brand.brand_desc %></p>
+
+<div class="row marged">
+    <div class="col-md-3">
+        <h3 class="text-center">Infos</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Etat : <%= @brand.brand_status %></li>
+          <li class="list-group-item">Description : <%= @brand.brand_desc %></li>
+          <li class="list-group-item">Groupe FB : <%= @brand.brand_group %></li>
+        </ul>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
+        <h3 class="text-center">Administratif</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">SIREN : <%= @brand.brand_siren %></li>
+          <li class="list-group-item">Adresse : <%= @brand.brand_address %></li>
+          <li class="list-group-item">Code postal : <%= @brand.brand_postal %></li>
+          <li class="list-group-item">Ville : <%= @brand.brand_city %></li>
+          <li class="list-group-item">Statut juridique : <%= @brand.brand_juridiq %></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
         <h3 class="text-center">Contact</h3>
-        <p>Mail : <%= @brand.brand_mail %></p>
-        <p>Phone : <%= @brand.brand_phone %></p>
-        <p>Facebook : <%= @brand.brand_facebook %></p>
-        <p>Twitter : <%= @brand.brand_twitter %></p>
-        <p>Instagram : <%= @brand.brand_instagram %></p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Site web : <a href="<%= @brand.brand_website %>" target="_blank"><%= @brand.brand_website %></a></li>
+          <li class="list-group-item">Mail : <%= @brand.brand_mail %></li>
+          <li class="list-group-item">Phone : <%= @brand.brand_phone %></li>
+          <li class="list-group-item">Facebook : <a href="<%= @brand.brand_facebook %>" target="_blank"><%= @brand.brand_facebook %></a></li>
+          <li class="list-group-item">Twitter : <a href="<%= @brand.brand_twitter %>" target="_blank"><%= @brand.brand_twitter %></a></li>
+          <li class="list-group-item">Instagram : <a href="<%= @brand.brand_instagram %>" target="_blank"><%= @brand.brand_instagram %></a></li>
+        </ul>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <h3 class="text-center">Membres</h3>
-        <% @members.each do |member| %>
-            <p><a href="/persons/<%= member.people.id %>"><%= member.people.first_name %> <%= member.people.last_name %></a></p>
-        <% end %>
+        <ul class="list-group list-group-flush">
+            <% @members.each do |member| %>
+                <li class="list-group-item"><a href="/persons/<%= member.people.id %>"><%= member.people.first_name %> <%= member.people.last_name %></a> : <%= member.member_role %></li>
+            <% end %>
+        </ul>
     </div>
 </div>
 
-<div class="row">
+<div class="row marged">
     <div class="col-md-6">
         <h3 class="text-center">Historique</h3>
         <% @notes.each do |note| %>
