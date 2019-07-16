@@ -17,40 +17,48 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <h3 class="text-center">Marques</h3>
-        <% @members.each do |member| %>
-            <p><a href="/brands/<%= member.brand.id %>"><%= member.brand.brand_title %></a></p>
-        <% end %>
+        <ul class="list-group list-group-flush">
+            <% @members.each do |member| %>
+                <li class="list-group-item"><a href="/brands/<%= member.brand.id %>"><%= member.brand.brand_title %></a></li>
+            <% end %>
+        </ul>
     </div>
-    <div class="col-md-6">
-        <h3 class="text-center">Contact</h3>
-        <p>Site web : <%= @person.person_website %></p>
-        <p>Mail : <%= @person.person_mail %></p>
-        <p>Phone : <%= @person.person_phone %></p>
-        <p>Facebook : <%= @person.person_facebook %></p>
-        <p>Twitter : <%= @person.person_twitter %></p>
-        <p>Instagram : <%= @person.person_instagram %></p>
+    <div class="col-md-4">
+        <ul class="list-group list-group-flush">
+            <h3 class="text-center">Contact</h3>
+            <li class="list-group-item"><i class="fab fa-internet-explorer"></i> <a href="<%= @person.person_website %>" target="_blank"><%= @person.person_website %></a></li>
+            <li class="list-group-item"><i class="fas fa-envelope-square"></i> <%= @person.person_mail %></li>
+            <li class="list-group-item"><i class="fas fa-phone-square-alt"></i> <%= @person.person_phone %></li>
+            <li class="list-group-item"><i class="fab fa-facebook-square"></i> <a href="<%= @person.person_facebook %>" target="_blank"><%= @person.person_facebook %></a></li>
+            <li class="list-group-item"><i class="fab fa-twitter-square"></i> <a href="<%= @person.person_twitter %>" target="_blank"><%= @person.person_twitter %></a></li>
+            <li class="list-group-item"><i class="fab fa-instagram"></i> <a href="<%= @person.person_instagram %>" target="_blank"><%= @person.person_instagram %></a></li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h3 class="text-center">Historique</h3>
+        <ul class="list-group list-group-flush">
+            <% @notes.each do |note| %>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-1">
+                            <%= form_tag("/notes/#{note.id}", method: "delete", class: '') do %>
+                                <%= submit_tag("X", class: 'btn btn-primary btn-sm') %>
+                            <% end %>
+                        </div>
+                        <div class="col-11">
+                            <p class="text-left"><%= note.note_datetime.strftime("Le %d/%m/%Y à %H:%M") %> avec <a href="/brands/<%= note.brand.id %>"><%= note.brand.brand_title %></a></p>
+                            <p><%= note.note_content %></p>
+                        </div>
+                    </div>
+                </li>
+            <% end %>
+        </ul>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-6">
-        <h3 class="text-center">Historique</h3>
-        <% @notes.each do |note| %>
-            <div class="row">
-                <div class="col-1">
-                    <%= form_tag("/notes/#{note.id}", method: "delete", class: '') do %>
-                        <%= submit_tag("X", class: 'btn btn-primary btn-sm') %>
-                    <% end %>
-                </div>
-                <div class="col-11">
-                    <p class="text-left"><%= note.note_datetime.strftime("Le %d/%m/%Y à %H:%M") %> avec <a href="/brands/<%= note.brand.id %>"><%= note.brand.brand_title %></a></p>
-                    <p><%= note.note_content %></p>
-                </div>
-            </div>
-        <% end %>
-    </div>
 </div>
 
 <% else %>
