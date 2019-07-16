@@ -13,11 +13,15 @@
                     </div>
                     <div class="form-group">
                         <label>Status de la marque</label>
-                        <select name="brand_status" class="form-control border" value="<%= @brand.brand_status %>">
+                        <select name="brand_status" class="form-control border">
+                           <option value="<%= @brand.brand_status %>">-- <%= @brand.brand_status %> --</option>
+                           <option value="A contacter">A contacter</option>
                            <option value="Contacté">Contacté</option>
                            <option value="Relancé">Relancé</option>
+                           <option value="En cours">En cours</option>
                            <option value="Validé">Validé</option>
                            <option value="Refusé">Refusé</option>
+                           <option value="Ban">Ban</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -43,6 +47,43 @@
                     <div class="form-group">
                         <label>Instagram de la marque</label>
                         <input type="text" class="form-control border" value="<%= @brand.brand_instagram %>" name="brand_instagram" />
+                    </div>
+                    <div class="form-group">
+                        <label>SIREN de la marque</label>
+                        <input type="text" class="form-control border" value="<%= @brand.brand_siren %>" name="brand_siren" />
+                    </div>
+                    <div class="form-group">
+                        <label>Adresse de la marque</label>
+                        <input type="text" class="form-control border" value="<%= @brand.brand_address %>" name="brand_address" />
+                    </div>
+                    <div class="form-group">
+                        <label>Code postal</label>
+                        <input type="text" class="form-control border" value="<%= @brand.brand_postal %>" name="brand_postal" />
+                    </div>
+                    <div class="form-group">
+                        <label>Ville web de la marque</label>
+                        <input type="text" class="form-control border" value="<%= @brand.brand_city %>" name="brand_city" />
+                    </div>
+                    <div class="form-group">
+                        <label>Statut juridique de la marque</label>
+                        <select name="brand_juridiq" class="form-control border">
+                            <option value="<%= @brand.brand_juridiq %>">-- <%= @brand.brand_juridiq %> --</option>
+                            <option value="Particulier">Particulier</option>
+                            <option value="Micro-entreprise">Micro-entreprise</option>
+                            <option value="SAS / SASU">SAS / SASU</option>
+                            <option value="SARL">SARL</option>
+                            <option value="EURL / EIRL">EURL / EIRL</option>
+                            <option value="Association">Association</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Présence dans le groupe</label>
+                        <select name="brand_group" class="form-control border">
+                           <option value="<%= @brand.brand_group %>">-- <%= @brand.brand_group %> --</option>
+                           <option value="Oui">Oui</option>
+                           <option value="Non">Non</option>
+                        </select>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Modifier la marque</button>

@@ -7,11 +7,7 @@
               <th scope="col">Description</th>
               <th scope="col">Status</th>
               <th scope="col">Mail</th>
-              <th scope="col">Phone</th>
               <th scope="col">Site web</th>
-              <th scope="col">Facebook</th>
-              <th scope="col">Twitter</th>
-              <th scope="col">Instagram</th>
             </tr>
           </thead>
           <tbody>
@@ -21,11 +17,7 @@
                   <td><%= brand.brand_desc.truncate_words(6) %></td>
                   <td><%= brand.brand_status %></td>
                   <td><%= brand.brand_mail %></td>
-                  <td><%= brand.brand_phone %></td>
                   <td><a href="<%= brand.brand_website %>" target="_blank"><%= brand.brand_website %></a></td>
-                  <td><a href="<%= brand.brand_facebook %>" target="_blank"><%= brand.brand_facebook %></a></td>
-                  <td><a href="<%= brand.brand_twitter %>" target="_blank"><%= brand.brand_twitter %></a></td>
-                  <td><a href="<%= brand.brand_instagram %>" target="_blank"><%= brand.brand_instagram %></a></td>
                 </tr>
             <% end %>
           </tbody>
