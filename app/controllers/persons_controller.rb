@@ -1,5 +1,9 @@
 class PersonsController < ApplicationController
   def index
+    if session[:user_id]
+      @current_user = User.find(session[:user_id])
+    end
+    
     @persons = People.all
   end
   
@@ -9,12 +13,20 @@ class PersonsController < ApplicationController
   end
 
   def show
+    if session[:user_id]
+      @current_user = User.find(session[:user_id])
+    end
+    
     @person = People.find(params[:id])
     @members = Member.where(people_id: params[:id])
     @notes = Note.where(people_id: params[:id]).order('note_datetime desc')
   end
   
   def change
+    if session[:user_id]
+      @current_user = User.find(session[:user_id])
+    end
+    
     @person = People.find(params[:id])
   end
   

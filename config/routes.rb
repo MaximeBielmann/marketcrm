@@ -26,4 +26,10 @@ Rails.application.routes.draw do
     delete 'notes/:id' => 'notes#delete'
     
     get 'admin' => 'pages#admin'
+    
+    get 'users/home' => 'pages#home'
+    get 'users/login' => 'users#login'
+    post 'users/login' => 'users#check'
+    delete 'users/login' => 'users#logout'
+    
 end

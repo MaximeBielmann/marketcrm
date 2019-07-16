@@ -32,11 +32,23 @@
           </li>
         </ul>
       </div>
+      
+      <div class="align-right">
+        <% if @current_user %>
+                <%= form_tag "/users/login", method: :delete do %>
+                  <input type="submit" class="btn btn-primary" value="Déconnexion" />
+                <% end %>
+        <% else %>
+                <a href="/users/login">S'identifier</a>
+        <% end %>
+      </div>
     </nav>
   </header>
   
   <body>
     <div class="container-fluid">
+      
+      <div><%= flash[:info] %></div>
       
       <%= yield %>
     
