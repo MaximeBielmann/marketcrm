@@ -9,7 +9,7 @@ class PersonsController < ApplicationController
   
   def create
     People.create first_name: params[:first_name], last_name: params[:last_name], person_mail: params[:person_mail], person_phone: params[:person_phone], person_website: params[:person_website], person_facebook: params[:person_facebook], person_twitter: params[:person_twitter], person_instagram: params[:person_instagram]
-    redirect_to '/persons'
+    redirect_to(:back)
   end
 
   def show
