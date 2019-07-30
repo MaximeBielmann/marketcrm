@@ -18,6 +18,6 @@ class PagesController < ApplicationController
     if session[:user_id]
       @current_user = User.find(session[:user_id])
     end
-    @brands = Brand.where("brand_market_sign" == true)
+    @brands = Brand.all
   end
 end
