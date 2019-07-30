@@ -18,6 +18,6 @@ class PagesController < ApplicationController
     if session[:user_id]
       @current_user = User.find(session[:user_id])
     end
-    @brands = Brand.all.order('brand_title')
+    @brands = Brand.where(brand_status: 'Validé').order('brand_title')
   end
 end
