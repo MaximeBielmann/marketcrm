@@ -10,24 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190716130348) do
+ActiveRecord::Schema.define(version: 20190730190909) do
 
   create_table "brands", force: :cascade do |t|
-    t.string "brand_title"
-    t.text   "brand_desc"
-    t.string "brand_status"
-    t.string "brand_mail"
-    t.string "brand_phone"
-    t.string "brand_website"
-    t.string "brand_facebook"
-    t.string "brand_twitter"
-    t.string "brand_instagram"
-    t.string "brand_siren"
-    t.string "brand_address"
-    t.string "brand_postal"
-    t.string "brand_city"
-    t.string "brand_juridiq"
-    t.string "brand_group"
+    t.string  "brand_title"
+    t.text    "brand_desc"
+    t.string  "brand_status"
+    t.string  "brand_mail"
+    t.string  "brand_phone"
+    t.string  "brand_website"
+    t.string  "brand_facebook"
+    t.string  "brand_twitter"
+    t.string  "brand_instagram"
+    t.string  "brand_siren"
+    t.string  "brand_address"
+    t.string  "brand_postal"
+    t.string  "brand_city"
+    t.string  "brand_juridiq"
+    t.string  "brand_group"
+    t.boolean "brand_market_sign",      default: false
+    t.boolean "brand_market_paiement",  default: false
+    t.boolean "brand_market_shipping",  default: false
+    t.boolean "brand_market_frontpage", default: false
+    t.boolean "brand_market_products",  default: false
   end
 
   create_table "members", force: :cascade do |t|

@@ -18,7 +18,7 @@
 </div>
 
 <div class="row marged">
-    <div class="col-md-3">
+    <div class="col-md-2">
         <h3 class="text-center">Infos</h3>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Etat : <%= @brand.brand_status %></li>
@@ -26,7 +26,17 @@
           <li class="list-group-item">Groupe FB : <%= @brand.brand_group %></li>
         </ul>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
+        <h3 class="text-center">MarketPlace</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Inscrit : <% if @brand.brand_market_sign == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></li>
+          <li class="list-group-item">Stripe : <% if @brand.brand_market_paiement == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></li>
+          <li class="list-group-item">Frais d'envoi : <% if @brand.brand_market_shipping == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></li>
+          <li class="list-group-item">Frontpage : <% if @brand.brand_market_frontpage == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></li>
+          <li class="list-group-item">Produits : <% if @brand.brand_market_products == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></li>
+        </ul>
+    </div>
+    <div class="col-md-2">
         <h3 class="text-center">Administratif</h3>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">SIREN : <%= @brand.brand_siren %></li>

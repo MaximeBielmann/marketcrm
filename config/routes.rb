@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     delete 'notes/:id' => 'notes#delete'
     
     get 'admin' => 'pages#admin'
+    get '/market' => 'pages#market'
     
     get 'users/home' => 'pages#home'
     get 'users/login' => 'users#login'
