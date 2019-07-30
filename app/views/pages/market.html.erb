@@ -15,7 +15,7 @@
           <tbody>
             <% @brands.each do |brand| %>
                 <tr>
-                  <th scope="row"><%= brand.brand_title %></th>
+                  <th scope="row"><a href="/brands/<%= brand.id %>"><%= brand.brand_title %></a></th>
                   <td><% if brand.brand_market_paiement == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></td>
                   <td><% if brand.brand_market_shipping == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></td>
                   <td><% if brand.brand_market_frontpage == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></td>
