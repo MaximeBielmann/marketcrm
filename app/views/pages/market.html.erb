@@ -6,6 +6,7 @@
           <thead>
             <tr>
               <th scope="col">Marque</th>
+              <th scope="col">Coach</th>
               <th scope="col">Inscrit</th>
               <th scope="col">Stripe</th>
               <th scope="col">Expédition</th>
@@ -17,6 +18,7 @@
             <% @brands.each do |brand| %>
                 <tr>
                   <th scope="row"><a href="/brands/<%= brand.id %>"><%= brand.brand_title %></a></th>
+                  <td><%= brand.brand_market_coach %></td>
                   <td><% if brand.brand_market_sign == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></td>
                   <td><% if brand.brand_market_paiement == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></td>
                   <td><% if brand.brand_market_shipping == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></td>

@@ -4,133 +4,149 @@
     <div class="col-12">
         <h3 class="text-center">Modifier <%= @brand.brand_title %></h3>
             <%= form_tag "/brands/#{@brand.id}", method: "patch" do %>
-                <form>
-                    <div class="form-group">
-                        <label>Nom de la marque</label>
-                        <input type="text" class="form-control border" value="<%= @brand.brand_title %>" name="brand_title" />
+                <div class="row">
+                    <div class="col-md-4">
+                        <form>
+                            <div class="form-group">
+                                <label>Nom de la marque</label>
+                                <input type="text" class="form-control border" value="<%= @brand.brand_title %>" name="brand_title" />
+                            </div>
+                            <div class="form-group">
+                                <label>Description de la marque</label>
+                                <input type="text" class="form-control border" value="<%= @brand.brand_desc %>" name="brand_desc" />
+                            </div>
+                            <div class="form-group">
+                                <label>Status de la marque</label>
+                                <select name="brand_status" class="form-control border">
+                                   <option value="<%= @brand.brand_status %>">-- <%= @brand.brand_status %> --</option>
+                                   <option value="A contacter">A contacter</option>
+                                   <option value="Contacté">Contacté</option>
+                                   <option value="Relancé">Relancé</option>
+                                   <option value="En cours">En cours</option>
+                                   <option value="Validé">Validé</option>
+                                   <option value="Refusé">Refusé</option>
+                                   <option value="Ban">Ban</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>SIREN de la marque</label>
+                                <input type="text" class="form-control border" value="<%= @brand.brand_siren %>" name="brand_siren" />
+                            </div>
+                            <div class="form-group">
+                                <label>Adresse de la marque</label>
+                                <input type="text" class="form-control border" value="<%= @brand.brand_address %>" name="brand_address" />
+                            </div>
+                            <div class="form-group">
+                                <label>Code postal</label>
+                                <input type="text" class="form-control border" value="<%= @brand.brand_postal %>" name="brand_postal" />
+                            </div>
+                            <div class="form-group">
+                                <label>Ville de la marque</label>
+                                <input type="text" class="form-control border" value="<%= @brand.brand_city %>" name="brand_city" />
+                            </div>
+                            <div class="form-group">
+                                <label>Statut juridique de la marque</label>
+                                <select name="brand_juridiq" class="form-control border">
+                                    <option value="<%= @brand.brand_juridiq %>">-- <%= @brand.brand_juridiq %> --</option>
+                                    <option value="Particulier">Particulier</option>
+                                    <option value="Micro-entreprise">Micro-entreprise</option>
+                                    <option value="SAS / SASU">SAS / SASU</option>
+                                    <option value="SARL">SARL</option>
+                                    <option value="EURL / EIRL">EURL / EIRL</option>
+                                    <option value="Association">Association</option>
+                                    <option value="Autre">Autre</option>
+                                </select>
+                            </div>
                     </div>
-                    <div class="form-group">
-                        <label>Description de la marque</label>
-                        <input type="text" class="form-control border" value="<%= @brand.brand_desc %>" name="brand_desc" />
+                    <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Mail de la marque</label>
+                                <input type="text" class="form-control border" value="<%= @brand.brand_mail %>" name="brand_mail" />
+                            </div>
+                            <div class="form-group">
+                                <label>Phone de la marque</label>
+                                <input type="text" class="form-control border" value="<%= @brand.brand_phone %>" name="brand_phone" />
+                            </div>
+                            <div class="form-group">
+                                <label>Site web de la marque</label>
+                                <input type="text" class="form-control border" value="<%= @brand.brand_website %>" name="brand_website" />
+                            </div>
+                            <div class="form-group">
+                                <label>Facebook de la marque</label>
+                                <input type="text" class="form-control border" value="<%= @brand.brand_facebook %>" name="brand_facebook" />
+                            </div>
+                            <div class="form-group">
+                                <label>Twitter de la marque</label>
+                                <input type="text" class="form-control border" value="<%= @brand.brand_twitter %>" name="brand_twitter" />
+                            </div>
+                            <div class="form-group">
+                                <label>Instagram de la marque</label>
+                                <input type="text" class="form-control border" value="<%= @brand.brand_instagram %>" name="brand_instagram" />
+                            </div>
                     </div>
-                    <div class="form-group">
-                        <label>Status de la marque</label>
-                        <select name="brand_status" class="form-control border">
-                           <option value="<%= @brand.brand_status %>">-- <%= @brand.brand_status %> --</option>
-                           <option value="A contacter">A contacter</option>
-                           <option value="Contacté">Contacté</option>
-                           <option value="Relancé">Relancé</option>
-                           <option value="En cours">En cours</option>
-                           <option value="Validé">Validé</option>
-                           <option value="Refusé">Refusé</option>
-                           <option value="Ban">Ban</option>
-                        </select>
+                    <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Présence dans le groupe</label>
+                                <select name="brand_group" class="form-control border">
+                                   <option value="<%= @brand.brand_group %>">-- <%= @brand.brand_group %> --</option>
+                                   <option value="Oui">Oui</option>
+                                   <option value="Non">Non</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Inscrit sur la MarketPlace</label>
+                                <select name="brand_market_sign" class="form-control border">
+                                   <option value="<%= @brand.brand_market_sign %>">-- <% if @brand.brand_market_sign == true %> Oui <% else %> Non <% end %>--</option>
+                                   <option value="false">Non</option>
+                                   <option value="true">Oui</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Accompagné par</label>
+                                <select name="brand_group" class="form-control border">
+                                   <option value="<%= @brand.brand_market_coach %>">-- <%= @brand.brand_market_coach %> --</option>
+                                   <option value="Maxime">Maxime</option>
+                                   <option value="Seva">Seva</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Stripe connecté</label>
+                                <select name="brand_market_paiement" class="form-control border">
+                                   <option value="<%= @brand.brand_market_paiement %>">-- <% if @brand.brand_market_paiement == true %> Oui <% else %> Non <% end %>--</option>
+                                   <option value="false">Non</option>
+                                   <option value="true">Oui</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Frais d'envoi configuré</label>
+                                <select name="brand_market_shipping" class="form-control border">
+                                   <option value="<%= @brand.brand_market_shipping %>">-- <% if @brand.brand_market_shipping == true %> Oui <% else %> Non <% end %>--</option>
+                                   <option value="false">Non</option>
+                                   <option value="true">Oui</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Frontpage personnalisée</label>
+                                <select name="brand_market_frontpage" class="form-control border">
+                                   <option value="<%= @brand.brand_market_frontpage %>">-- <% if @brand.brand_market_frontpage == true %> Oui <% else %> Non <% end %>--</option>
+                                   <option value="false">Non</option>
+                                   <option value="true">Oui</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Produits ajoutés</label>
+                                <select name="brand_market_products" class="form-control border">
+                                   <option value="<%= @brand.brand_market_products %>">-- <% if @brand.brand_market_products == true %> Oui <% else %> Non <% end %>--</option>
+                                   <option value="false">Non</option>
+                                   <option value="true">Oui</option>
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Modifier la marque</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label>Mail de la marque</label>
-                        <input type="text" class="form-control border" value="<%= @brand.brand_mail %>" name="brand_mail" />
-                    </div>
-                    <div class="form-group">
-                        <label>Phone de la marque</label>
-                        <input type="text" class="form-control border" value="<%= @brand.brand_phone %>" name="brand_phone" />
-                    </div>
-                    <div class="form-group">
-                        <label>Site web de la marque</label>
-                        <input type="text" class="form-control border" value="<%= @brand.brand_website %>" name="brand_website" />
-                    </div>
-                    <div class="form-group">
-                        <label>Facebook de la marque</label>
-                        <input type="text" class="form-control border" value="<%= @brand.brand_facebook %>" name="brand_facebook" />
-                    </div>
-                    <div class="form-group">
-                        <label>Twitter de la marque</label>
-                        <input type="text" class="form-control border" value="<%= @brand.brand_twitter %>" name="brand_twitter" />
-                    </div>
-                    <div class="form-group">
-                        <label>Instagram de la marque</label>
-                        <input type="text" class="form-control border" value="<%= @brand.brand_instagram %>" name="brand_instagram" />
-                    </div>
-                    <div class="form-group">
-                        <label>SIREN de la marque</label>
-                        <input type="text" class="form-control border" value="<%= @brand.brand_siren %>" name="brand_siren" />
-                    </div>
-                    <div class="form-group">
-                        <label>Adresse de la marque</label>
-                        <input type="text" class="form-control border" value="<%= @brand.brand_address %>" name="brand_address" />
-                    </div>
-                    <div class="form-group">
-                        <label>Code postal</label>
-                        <input type="text" class="form-control border" value="<%= @brand.brand_postal %>" name="brand_postal" />
-                    </div>
-                    <div class="form-group">
-                        <label>Ville de la marque</label>
-                        <input type="text" class="form-control border" value="<%= @brand.brand_city %>" name="brand_city" />
-                    </div>
-                    <div class="form-group">
-                        <label>Statut juridique de la marque</label>
-                        <select name="brand_juridiq" class="form-control border">
-                            <option value="<%= @brand.brand_juridiq %>">-- <%= @brand.brand_juridiq %> --</option>
-                            <option value="Particulier">Particulier</option>
-                            <option value="Micro-entreprise">Micro-entreprise</option>
-                            <option value="SAS / SASU">SAS / SASU</option>
-                            <option value="SARL">SARL</option>
-                            <option value="EURL / EIRL">EURL / EIRL</option>
-                            <option value="Association">Association</option>
-                            <option value="Autre">Autre</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Présence dans le groupe</label>
-                        <select name="brand_group" class="form-control border">
-                           <option value="<%= @brand.brand_group %>">-- <%= @brand.brand_group %> --</option>
-                           <option value="Oui">Oui</option>
-                           <option value="Non">Non</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Inscrit sur la MarketPlace</label>
-                        <select name="brand_market_sign" class="form-control border">
-                           <option value="<%= @brand.brand_market_sign %>">-- <% if @brand.brand_market_sign == true %> Oui <% else %> Non <% end %>--</option>
-                           <option value="false">Non</option>
-                           <option value="true">Oui</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Stripe connecté</label>
-                        <select name="brand_market_paiement" class="form-control border">
-                           <option value="<%= @brand.brand_market_paiement %>">-- <% if @brand.brand_market_paiement == true %> Oui <% else %> Non <% end %>--</option>
-                           <option value="false">Non</option>
-                           <option value="true">Oui</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Frais d'envoi configuré</label>
-                        <select name="brand_market_shipping" class="form-control border">
-                           <option value="<%= @brand.brand_market_shipping %>">-- <% if @brand.brand_market_shipping == true %> Oui <% else %> Non <% end %>--</option>
-                           <option value="false">Non</option>
-                           <option value="true">Oui</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Frontpage personnalisée</label>
-                        <select name="brand_market_frontpage" class="form-control border">
-                           <option value="<%= @brand.brand_market_frontpage %>">-- <% if @brand.brand_market_frontpage == true %> Oui <% else %> Non <% end %>--</option>
-                           <option value="false">Non</option>
-                           <option value="true">Oui</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Produits ajoutés</label>
-                        <select name="brand_market_products" class="form-control border">
-                           <option value="<%= @brand.brand_market_products %>">-- <% if @brand.brand_market_products == true %> Oui <% else %> Non <% end %>--</option>
-                           <option value="false">Non</option>
-                           <option value="true">Oui</option>
-                        </select>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Modifier la marque</button>
-                    </div>
-                </form>
+                </div>
             <% end %>
     </div>
 </div>
