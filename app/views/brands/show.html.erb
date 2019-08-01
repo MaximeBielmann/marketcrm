@@ -29,7 +29,7 @@
     <div class="col-md-2">
         <h3 class="text-center">MarketPlace</h3>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Coach : <%= @brand.brand_market_coach %></li>
+          <% if @brand.brand_market_sign == true %><li class="list-group-item">Coach : <%= @brand.brand_market_coach %></li> <% end %>
           <li class="list-group-item">Inscrit : <% if @brand.brand_market_sign == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></li>
           <li class="list-group-item">Stripe : <% if @brand.brand_market_paiement == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></li>
           <li class="list-group-item">Frais d'envoi : <% if @brand.brand_market_shipping == true %><i class="fas fa-check text-success"></i><% else %><i class="fas fa-times text-danger"></i><% end %></li>
