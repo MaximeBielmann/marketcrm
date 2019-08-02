@@ -25,13 +25,13 @@ class PagesController < ApplicationController
     if session[:user_id]
       @current_user = User.find(session[:user_id])
     end
-    @notes = Note.includes(:brand).where("brand_market_coach = 'Maxime'").references(:brand).order('note_datetime')
+    @notes = Note.includes(:brand).where("brand_market_coach = 'Maxime'").references(:brand).order('brand_id')
   end
   
   def seva
     if session[:user_id]
       @current_user = User.find(session[:user_id])
     end
-    @notes = Note.includes(:brand).where("brand_market_coach = 'Seva'").references(:brand).order('note_datetime')
+    @notes = Note.includes(:brand).where("brand_market_coach = 'Seva'").references(:brand).order('brand_id')
   end
 end
