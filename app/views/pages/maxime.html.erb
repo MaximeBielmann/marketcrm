@@ -1,0 +1,28 @@
+<% if @current_user %>
+
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Marque</th>
+              <th scope="col">Personne</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @notes.each.each do |note| %>
+                <tr>
+                  <td><a href="/brands/<%= note.brand.id %>"><%= note.brand.brand_title %></a></td>
+                  <td><a href="/persons/<%= note.people.id %>"><%= note.people.first_name %> <%= note.people.last_name %></a></td>
+                  <td><%= note.note_content %></td>
+                </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+</div>
+
+<% else %>
+  <h1>Bienvenue visiteur anonyme !</h1>
+<% end %>

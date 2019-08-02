@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     
     get 'admin' => 'pages#admin'
     get '/market' => 'pages#market'
+    get '/maxime' => 'pages#maxime'
+    get '/seva' => 'pages#seva'
     
     get 'users/home' => 'pages#home'
     get 'users/login' => 'users#login'
