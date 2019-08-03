@@ -14,7 +14,7 @@
           </thead>
           <tbody>
             <% @brands.each.each do |brand| %>
-                <tr>
+                <tr class="<% if brand.brand_status == 'Validé' %>bg-valide<% elsif brand.brand_status == 'Ban' %>bg-refuse<% end %>">
                   <td><a href="/brands/<%= brand.id %>"><%= brand.brand_title %></a></td>
                   <td><%= brand.brand_desc.truncate_words(6) %></td>
                   <td><%= brand.brand_status %></td>

@@ -17,3 +17,11 @@
 .marged {
     margin-top: 50px;
 }
+
+.bg-valide {
+    background-color: #99ff99!important;
+}
+
+.bg-refuse {
+    background-color: #ff5050!important;
+}

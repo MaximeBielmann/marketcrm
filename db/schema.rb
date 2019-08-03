@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190801075356) do
+ActiveRecord::Schema.define(version: 20190803155420) do
 
   create_table "brands", force: :cascade do |t|
     t.string  "brand_title"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20190801075356) do
     t.boolean "brand_market_frontpage", default: false
     t.boolean "brand_market_products",  default: false
     t.string  "brand_market_coach",     default: "Maxime"
+    t.text    "brand_observation",      default: "Néant"
   end
 
   create_table "members", force: :cascade do |t|
