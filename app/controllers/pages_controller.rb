@@ -10,8 +10,8 @@ class PagesController < ApplicationController
       @current_user = User.find(session[:user_id])
     end
     
-    @brands = Brand.all.reverse
-    @persons = People.all.reverse
+    @brands = Brand.all.order('id').reverse
+    @persons = People.all.order('id').reverse
   end
   
   def market
