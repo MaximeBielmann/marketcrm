@@ -12,6 +12,9 @@ class PagesController < ApplicationController
     
     @brands = Brand.all.order('id').reverse
     @persons = People.all.order('id').reverse
+    
+    @maxime = Brand.where(brand_coach: 'Maxime').size
+    @seva = Brand.where(brand_coach: 'Seva').size
   end
   
   def market
