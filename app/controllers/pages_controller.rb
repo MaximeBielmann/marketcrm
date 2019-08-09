@@ -13,8 +13,8 @@ class PagesController < ApplicationController
     @brands = Brand.all.order('id').reverse
     @persons = People.all.order('id').reverse
     
-    @maxime = Brand.where("brand_market_coach = 'Maxime'", "brand_market_sign = 'true'").size
-    @seva = Brand.where("brand_market_coach = 'Seva'", "brand_market_sign = 'true'").size
+    @maxime = Brand.where(["brand_market_coach = ? and brand_market_sign = ?", "Maxime", "true"]).size
+    @seva = Brand.where(["brand_market_coach = ? and brand_market_sign = ?", "Seva", "true"]).size
   end
   
   def market
@@ -28,7 +28,7 @@ class PagesController < ApplicationController
     if session[:user_id]
       @current_user = User.find(session[:user_id])
     end
-    @notes = Note.includes(:brand).where("brand_market_coach = 'Maxime'", "brand_market_sign = 'true'").references(:brand).order('brand_id')
+    @notes = Note.includes(:brand).where(brand_market_coach = 'Maxime').where(brand_market_sign = 'true').references(:brand).order('brand_id')
   end
   
   def seva
