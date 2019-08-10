@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+ 
+.row {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
 
 .marged {
     margin-top: 50px;
