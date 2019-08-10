@@ -15,6 +15,14 @@ class PagesController < ApplicationController
     
     @maxime = Brand.where(["brand_market_coach = ? and brand_status = ?", "Maxime", "Validé"]).size
     @seva = Brand.where(["brand_market_coach = ? and brand_status = ?", "Seva", "Validé"]).size
+    
+    @to_contact = Brand.where(brand_status: 'A contacter').size
+    @contacted = Brand.where(brand_status: 'Contacté').size
+    @recontacted = Brand.where(brand_status: 'Relancé').size
+    @pending = Brand.where(brand_status: 'En cours').size
+    @validate = Brand.where(brand_status: 'Validé').size
+    @refused = Brand.where(brand_status: 'Refusé').size
+    @ban = Brand.where(brand_status: 'Ban').size
   end
   
   def market

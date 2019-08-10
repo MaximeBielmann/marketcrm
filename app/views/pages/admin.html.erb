@@ -153,6 +153,35 @@
     </div>
 </div>
 
+<div class="row">
+    <div class="col-12">
+        <table class="table text-center">
+  <thead>
+    <tr>
+      <th scope="col">A contacter</th>
+      <th scope="col">Contacté</th>
+      <th scope="col">Relancé</th>
+      <th scope="col">En cours</th>
+      <th scope="col">Validé</th>
+      <th scope="col">Refusé</th>
+      <th scope="col">Ban</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @to_contact %></td>
+      <td><%= @contacted %></td>
+      <td><%= @recontacted %></td>
+      <td><%= @pending %></td>
+      <td><%= @validate %></td>
+      <td><%= @refused %></td>
+      <td><%= @ban %></td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+</div>
+
 <% else %>
   <h1>Bienvenue visiteur anonyme !</h1>
 <% end %>
