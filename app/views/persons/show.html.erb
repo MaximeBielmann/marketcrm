@@ -28,12 +28,12 @@
     <div class="col-md-4">
         <ul class="list-group list-group-flush">
             <h3 class="text-center">Contact</h3>
-            <li class="list-group-item"><i class="fab fa-internet-explorer"></i> <a href="<%= @person.person_website %>" target="_blank">Voir le site</a></li>
-            <li class="list-group-item"><i class="fas fa-envelope-square"></i> <a href="mailto:<%= @person.person_mail %>"><%= @person.person_mail %></a></li>
+            <li class="list-group-item"><i class="fab fa-internet-explorer"></i> <% if @person.person_website.size > 0 %> <a href="<%= @person.person_website %>" target="_blank">Voir le site</a><% end %></li>
+            <li class="list-group-item"><i class="fas fa-envelope-square"></i> <% if @person.person_mail.size > 0 %><a href="mailto:<%= @person.person_mail %>"><%= @person.person_mail %></a><% end %></li>
             <li class="list-group-item"><i class="fas fa-phone-square-alt"></i> <%= @person.person_phone %></li>
-            <li class="list-group-item"><i class="fab fa-facebook-square"></i> <a href="<%= @person.person_facebook %>" target="_blank">Voir le Facebook</a></li>
-            <li class="list-group-item"><i class="fab fa-twitter-square"></i> <a href="<%= @person.person_twitter %>" target="_blank">Voir le Twitter</a></li>
-            <li class="list-group-item"><i class="fab fa-instagram"></i> <a href="<%= @person.person_instagram %>" target="_blank">Voir le Instagram</a></li>
+            <li class="list-group-item"><i class="fab fa-facebook-square"></i> <% if @person.person_facebook.size > 0 %><a href="<%= @person.person_facebook %>" target="_blank">Voir le Facebook</a><% end %></li>
+            <li class="list-group-item"><i class="fab fa-twitter-square"></i> <% if @person.person_twitter.size > 0 %><a href="<%= @person.person_twitter %>" target="_blank">Voir le Twitter</a><% end %></li>
+            <li class="list-group-item"><i class="fab fa-instagram"></i> <% if @person.person_instagram.size > 0 %><a href="<%= @person.person_instagram %>" target="_blank">Voir le Instagram</a><% end %></li>
         </ul>
     </div>
     <div class="col-md-4">
