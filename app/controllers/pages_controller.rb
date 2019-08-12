@@ -30,6 +30,13 @@ class PagesController < ApplicationController
       @current_user = User.find(session[:user_id])
     end
     @brands = Brand.where(brand_status: 'Validé').order('brand_title')
+    
+    @group = Brand.where(brand_group: 'Oui').size
+    @market = Brand.where(brand_market_sign: 'true').size
+    @stripe = Brand.where(brand_market_paiement: 'true').size
+    @ship = Brand.where(brand_market_shipping: 'true').size
+    @front = Brand.where(brand_market_frontpage: 'true').size
+    @product = Brand.where(brand_market_products: 'true').size
   end
   
   def maxime

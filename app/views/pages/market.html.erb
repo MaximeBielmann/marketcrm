@@ -7,12 +7,12 @@
             <tr>
               <th scope="col">Marque</th>
               <th scope="col">Coach</th>
-              <th scope="col">Groupe FB</th>
-              <th scope="col">Inscrit</th>
-              <th scope="col">Stripe</th>
-              <th scope="col">Expédition</th>
-              <th scope="col">Frontpage</th>
-              <th scope="col">Produits</th>
+              <th scope="col">Groupe FB (<%= @group %>/<%= @brands.size %>)</th>
+              <th scope="col">Inscrit (<%= @market %>/<%= @brands.size %>)</th>
+              <th scope="col">Stripe (<%= @stripe %>/<%= @brands.size %>)</th>
+              <th scope="col">Expédition (<%= @ship %>/<%= @brands.size %>)</th>
+              <th scope="col">Frontpage (<%= @front %>/<%= @brands.size %>)</th>
+              <th scope="col">Produits (<%= @product %>/<%= @brands.size %>)</th>
             </tr>
           </thead>
           <tbody>
