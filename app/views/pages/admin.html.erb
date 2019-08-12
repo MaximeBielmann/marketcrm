@@ -77,8 +77,8 @@
                     <div class="form-group">
                         <label>Présence dans le groupe</label>
                         <select name="brand_group" class="form-control border">
-                           <option value="Oui">Oui</option>
                            <option value="Non">Non</option>
+                           <option value="Oui">Oui</option>
                         </select>
                     </div>
                     <div class="text-center">
@@ -165,6 +165,7 @@
       <th scope="col">Validé</th>
       <th scope="col">Refusé</th>
       <th scope="col">Ban</th>
+      <th scope="col">TOTAL</th>
     </tr>
   </thead>
   <tbody>
@@ -176,6 +177,7 @@
       <td><%= @validate %></td>
       <td><%= @refused %></td>
       <td><%= @ban %></td>
+      <td><%= @brands.size %></td>
     </tr>
   </tbody>
 </table>
