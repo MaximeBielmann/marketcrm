@@ -5,6 +5,7 @@
         <table class="table">
           <thead>
             <tr>
+              <th scope="col">#</th>
               <th scope="col">Marque</th>
               <th scope="col">Personne</th>
               <th scope="col">Description</th>
@@ -13,6 +14,11 @@
           <tbody>
             <% @notes.each.each do |note| %>
                 <tr>
+                  <td>
+                    <%= form_tag("/notes/#{note.id}", method: "delete", class: '') do %>
+                        <%= submit_tag("X", class: 'btn btn-primary btn-sm') %>
+                    <% end %>
+                  </td>
                   <td><a href="/brands/<%= note.brand.id %>"><%= note.brand.brand_title %></a></td>
                   <td><a href="/persons/<%= note.people.id %>"><%= note.people.first_name %> <%= note.people.last_name %></a></td>
                   <td><%= note.note_content %></td>

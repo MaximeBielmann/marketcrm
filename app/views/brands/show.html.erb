@@ -48,7 +48,7 @@
           <li class="list-group-item">Statut juridique : <%= @brand.brand_juridiq %></li>
         </ul>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
         <h3 class="text-center">Contact</h3>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><i class="fab fa-internet-explorer"></i> <% if @brand.brand_website.size > 0 %><a href="<%= @brand.brand_website %>" target="_blank">Voir le site</a><% end %></li>
@@ -59,12 +59,23 @@
           <li class="list-group-item"><i class="fab fa-instagram"></i> <% if @brand.brand_instagram.size > 0 %><a href="<%= @brand.brand_instagram %>" target="_blank">Voir le Instagram</a><% end %></li>
         </ul>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <h3 class="text-center">Membres</h3>
         <% if @members.size > 0 %>
             <ul class="list-group list-group-flush">
                 <% @members.each do |member| %>
-                    <li class="list-group-item"><a href="/persons/<%= member.people.id %>"><%= member.people.first_name %> <%= member.people.last_name %></a> : <%= member.member_role %></li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-1">
+                            <%= form_tag("/members/#{member.id}", method: "delete", class: '') do %>
+                                <%= submit_tag("X", class: 'btn btn-primary btn-sm') %>
+                            <% end %>
+                        </div>
+                        <div class="col-11">
+                            <a href="/persons/<%= member.people.id %>"><%= member.people.first_name %> <%= member.people.last_name %></a> : <%= member.member_role %>
+                        </div>
+                    </div>
+                </li>
                 <% end %>
             </ul>
         <% end %>
